@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+{% if doagain == False %}
+<script>alert("login success!")</script>
+<script>window.location.href="main"</script>
+{% endif %}
+{% if alert1 == True %}
+<script>alert("account not found!")</script>
+<script>window.location.href="login"</script>
+{% endif %}
+{% if alert2 == True %}
+<script>alert("password incorrect!")</script>
+<script>window.location.href="login"</script>
+{% endif %}
+<h1>Login Page</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="login"> <input type="button" value="regist" onclick="location.href='regist'">
+</form>
+{% endblock %}

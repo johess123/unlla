@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Regist {% endblock %}
+{% block content %}
+{% if doagain == False %}
+<script>alert("sign up success!")</script>
+<script>window.location.href="login"</script>
+{% endif %}
+{% if alert1 == True %}
+<script>alert("has same name account!")</script>
+<script>window.location.href="regist"</script>
+{% endif %}
+<h1>Regist Page</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="regist"> <input type="button" value="login" onclick="location.href='login'">
+</form>
+{% endblock %}
